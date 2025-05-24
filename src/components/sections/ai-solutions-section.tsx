@@ -6,7 +6,7 @@ import { IssueDiagnosisForm } from "@/components/ai/issue-diagnosis-form";
 import { WellnessRecommendationsForm } from "@/components/ai/wellness-recommendations-form";
 import { MoraleAnalysisForm } from "@/components/ai/morale-analysis-form";
 import { BurnoutRiskDetectorForm } from "@/components/ai/burnout-risk-detector-form";
-import { WorkloadTimetableForm } from "@/components/ai/workload-timetable-form"; // Import the new form
+import { WorkloadTimetableForm } from "@/components/ai/workload-timetable-form"; 
 
 export function AiSolutionsSection() {
   const tabButtonStyle = "tab-button-custom";
@@ -18,13 +18,17 @@ export function AiSolutionsSection() {
       <p className="text-center max-w-3xl mx-auto mb-10 text-lg text-neutral-700">Artificial Intelligence offers transformative opportunities to alleviate core stressors, enhance well-being, and foster a more sustainable IT workforce. Explore various AI applications below.</p>
       <div className="max-w-5xl mx-auto">
         <Tabs defaultValue="burnout-detector" className="w-full">
-          <TabsList className="grid w-full grid-cols-2 md:grid-cols-5 mb-0 border-b-0 p-0 bg-transparent rounded-none">
-            <TabsTrigger value="burnout-detector" className={`${tabButtonStyle} data-[state=active]:${activeTabButtonStyle}`}>Burnout Detector</TabsTrigger>
-            <TabsTrigger value="automation" className={`${tabButtonStyle} data-[state=active]:${activeTabButtonStyle}`}>Task Automation</TabsTrigger>
-            <TabsTrigger value="workload" className={`${tabButtonStyle} data-[state=active]:${activeTabButtonStyle}`}>Workload Management</TabsTrigger>
-            <TabsTrigger value="wellbeing" className={`${tabButtonStyle} data-[state=active]:${activeTabButtonStyle}`}>Well-being Support</TabsTrigger>
-            <TabsTrigger value="it-ops" className={`${tabButtonStyle} data-[state=active]:${activeTabButtonStyle}`}>Specialized IT Ops</TabsTrigger>
-          </TabsList>
+          <div className="relative"> {/* Wrapper for potential scroll indicators if added later */}
+            <TabsList className="flex w-full overflow-x-auto whitespace-nowrap snap-x snap-proximity 
+                               md:grid md:grid-cols-5 md:whitespace-normal md:overflow-x-visible 
+                               mb-0 border-b-0 p-0 bg-transparent rounded-none">
+              <TabsTrigger value="burnout-detector" className={`${tabButtonStyle} data-[state=active]:${activeTabButtonStyle}`}>Burnout Detector</TabsTrigger>
+              <TabsTrigger value="automation" className={`${tabButtonStyle} data-[state=active]:${activeTabButtonStyle}`}>Task Automation</TabsTrigger>
+              <TabsTrigger value="workload" className={`${tabButtonStyle} data-[state=active]:${activeTabButtonStyle}`}>Workload Management</TabsTrigger>
+              <TabsTrigger value="wellbeing" className={`${tabButtonStyle} data-[state=active]:${activeTabButtonStyle}`}>Well-being Support</TabsTrigger>
+              <TabsTrigger value="it-ops" className={`${tabButtonStyle} data-[state=active]:${activeTabButtonStyle}`}>Specialized IT Ops</TabsTrigger>
+            </TabsList>
+          </div>
 
           <TabsContent value="burnout-detector" className="tab-content-custom">
             <h3 className="text-xl font-semibold text-teal-custom-700 mb-3">AI-Powered Burnout Risk Detector</h3>
@@ -55,8 +59,8 @@ export function AiSolutionsSection() {
           <TabsContent value="workload" className="tab-content-custom">
             <h3 className="text-xl font-semibold text-teal-custom-700 mb-3">Intelligent Workload Management & Optimization</h3>
             <p className="mb-2 text-neutral-700">AI analyzes workloads, deadlines, and performance to suggest optimal task allocation and prevent overload. This includes generating timetables from task descriptions.</p>
-            <WorkloadTimetableForm /> {/* Add the new form here */}
-            <div className="mt-6"> {/* Original content moved below the form */}
+            <WorkloadTimetableForm />
+            <div className="mt-6">
               <h4 className="text-lg font-semibold text-teal-custom-600 mb-2">Other AI Capabilities in Workload Management:</h4>
               <ul className="list-disc list-inside space-y-1 text-neutral-700">
                 <li><strong>Predictive Workload Optimization:</strong> ML forecasts demands, distributes tasks based on capacity.</li>

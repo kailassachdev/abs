@@ -1,3 +1,4 @@
+
 'use client';
 import { useState } from 'react';
 import { generateWorkloadTimetable, WorkloadTimetableInput, WorkloadTimetableOutput } from '@/ai/flows/workload-timetable-flow';
@@ -71,8 +72,7 @@ export function WorkloadTimetableForm() {
         {timetableResult && (
           <div className="mt-4 p-4 border rounded-md bg-amber-100 text-neutral-700 space-y-3">
             <h4 className="font-semibold text-teal-custom-700">Generated Timetable:</h4>
-            {/* Using a simple pre-wrap for now, can be enhanced with markdown parsing later */}
-            <pre className="whitespace-pre-wrap font-sans text-sm">{timetableResult.timetable}</pre>
+            <pre className="whitespace-pre-wrap font-sans text-sm overflow-x-auto">{timetableResult.timetable}</pre>
           </div>
         )}
       </CardContent>
