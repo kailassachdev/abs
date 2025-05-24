@@ -6,6 +6,7 @@ import { IssueDiagnosisForm } from "@/components/ai/issue-diagnosis-form";
 import { WellnessRecommendationsForm } from "@/components/ai/wellness-recommendations-form";
 import { MoraleAnalysisForm } from "@/components/ai/morale-analysis-form";
 import { BurnoutRiskDetectorForm } from "@/components/ai/burnout-risk-detector-form";
+import { WorkloadTimetableForm } from "@/components/ai/workload-timetable-form"; // Import the new form
 
 export function AiSolutionsSection() {
   const tabButtonStyle = "tab-button-custom";
@@ -53,14 +54,18 @@ export function AiSolutionsSection() {
 
           <TabsContent value="workload" className="tab-content-custom">
             <h3 className="text-xl font-semibold text-teal-custom-700 mb-3">Intelligent Workload Management & Optimization</h3>
-            <p className="mb-2 text-neutral-700">AI analyzes workloads, deadlines, and performance to suggest optimal task allocation and prevent overload.</p>
-            <ul className="list-disc list-inside space-y-1 text-neutral-700">
-              <li><strong>Predictive Workload Optimization:</strong> ML forecasts demands, distributes tasks based on capacity.</li>
-              <li><strong>AI Scheduling Assistants (e.g., Clockwise, Reclaim.ai):</strong> Optimize calendars, protect focus time, reduce context-switching.</li>
-              <li><strong>Managerial Insights:</strong> Aggregated, anonymized data on team workload and stress patterns.</li>
-              <li><strong>Risk Prediction:</strong> AI algorithms predict peak workloads and burnout risks, suggesting resource allocation.</li>
-            </ul>
-            <p className="mt-3 text-md text-neutral-700 bg-amber-100 p-3 rounded-lg"><strong>Benefit:</strong> Shifts from reactive firefighting to proactive prevention, ensuring balanced workloads.</p>
+            <p className="mb-2 text-neutral-700">AI analyzes workloads, deadlines, and performance to suggest optimal task allocation and prevent overload. This includes generating timetables from task descriptions.</p>
+            <WorkloadTimetableForm /> {/* Add the new form here */}
+            <div className="mt-6"> {/* Original content moved below the form */}
+              <h4 className="text-lg font-semibold text-teal-custom-600 mb-2">Other AI Capabilities in Workload Management:</h4>
+              <ul className="list-disc list-inside space-y-1 text-neutral-700">
+                <li><strong>Predictive Workload Optimization:</strong> ML forecasts demands, distributes tasks based on capacity.</li>
+                <li><strong>AI Scheduling Assistants (e.g., Clockwise, Reclaim.ai):</strong> Optimize calendars, protect focus time, reduce context-switching.</li>
+                <li><strong>Managerial Insights:</strong> Aggregated, anonymized data on team workload and stress patterns.</li>
+                <li><strong>Risk Prediction:</strong> AI algorithms predict peak workloads and burnout risks, suggesting resource allocation.</li>
+              </ul>
+            </div>
+            <p className="mt-3 text-md text-neutral-700 bg-amber-100 p-3 rounded-lg"><strong>Benefit:</strong> Shifts from reactive firefighting to proactive prevention, ensuring balanced workloads and providing tools for better personal organization.</p>
           </TabsContent>
 
           <TabsContent value="wellbeing" className="tab-content-custom">
