@@ -1,45 +1,63 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# dependencies
+# Dependencies
 /node_modules
 /.pnp
-.pnp.*
-.yarn/*
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/versions
+.pnp.js
 
-# testing
-/coverage
-
-# next.js
+# Next.js
 /.next/
 /out/
 
-# production
-/build
-
-# misc
-.DS_Store
-*.pem
-
-# debug
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-.pnpm-debug.log*
-
-# vercel
-.vercel
-
-# typescript
+# TypeScript
 *.tsbuildinfo
 next-env.d.ts
 
-.genkit/*
-.env*
+# Misc
+.DS_Store
+*.pem
 
-# firebase
+# Environment Variables
+.env.local
+.env.*.local
+!.env.example
+!.env.example.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+logs
+*.log.*
+
+# Local .vimrc files
+.vimrc.local
+.vimrc.before.local
+.vimrc.after.local
+
+# Local Test Environment
+.firebase/emulators/
+.firebase/hosting.*.cache
 firebase-debug.log
 firestore-debug.log
+ui-debug.log
+database-debug.log
+pubsub-debug.log
+storage-debug.log
+
+# Build output
+dist
+build
+
+# IDE files
+.idea
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.sublime-workspace
+
+# Coverage directory used by tools like istanbul
+coverage

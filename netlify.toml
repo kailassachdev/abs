@@ -1,0 +1,18 @@
+# Netlify configuration file
+# https://docs.netlify.com/configure-builds/file-based-configuration/
+
+[build]
+  # Command to build your Next.js site
+  command = "npm run build"
+  # Directory that contains the built site
+  publish = ".next"
+
+[dev]
+  # Command to run your Next.js dev server
+  command = "npm run dev"
+  # Port for the dev server
+  port = 9002 # Matches your package.json dev script port
+
+[[plugins]]
+  # Essential Next.js plugin for Netlify
+  package = "@netlify/plugin-nextjs"
