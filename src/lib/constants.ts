@@ -6,8 +6,8 @@ export interface NavLink {
 }
 
 export const NAV_LINKS: NavLink[] = [
-  { slug: "intro", label: "Intro", href: "/#intro" },
   { slug: "ai-solutions", label: "AI Solutions", href: "/#ai-solutions" },
+  { slug: "intro", label: "Intro", href: "/#intro" },
   { slug: "understanding", label: "Understanding", href: "/#understanding" },
   { slug: "causes", label: "Causes", href: "/#causes" },
   { slug: "impacts", label: "Impacts", href: "/#impacts" },

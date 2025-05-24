@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 export function Navbar() {
-  const [activeSection, setActiveSection] = useState<string>("intro");
+  const [activeSection, setActiveSection] = useState<string>("ai-solutions");
   const [navbarHeight, setNavbarHeight] = useState(0);
   const navRef = useRef<HTMLElement | null>(null);
   const [isSheetOpen, setIsSheetOpen] = useState(false);
@@ -21,7 +21,7 @@ export function Navbar() {
     }
 
     const handleScroll = () => {
-      let currentSection = "intro";
+      let currentSection = "ai-solutions"; // Default to the first section
       const scrollPosition = window.scrollY + navbarHeight + 20; // Add some offset
 
       NAV_LINKS.forEach((link) => {
@@ -54,6 +54,7 @@ export function Navbar() {
           href={link.href} // Use the href which now includes #
           onClick={() => {
             if (onLinkClick) onLinkClick();
+            // setActiveSection(link.slug); // Set active on click for faster feedback
           }}
           className={`nav-link-custom ${activeSection === link.slug ? "active" : ""} ${isMobile ? "block text-lg py-3" : "text-sm"}`}
         >
@@ -68,7 +69,7 @@ export function Navbar() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
-            <Link href="/#intro" className="font-bold text-xl text-teal-custom-700">
+            <Link href="/#ai-solutions" className="font-bold text-xl text-teal-custom-700">
               Aether Shield
             </Link>
           </div>
