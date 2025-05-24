@@ -1,14 +1,20 @@
 
-export const NAV_LINKS = [
-  { id: "intro", label: "Intro" },
-  { id: "ai-solutions", label: "AI Solutions" },
-  { id: "understanding", label: "Understanding" },
-  { id: "causes", label: "Causes" },
-  { id: "impacts", label: "Impacts" },
-  { id: "tech-framework", label: "Tech & Synergy" },
-  { id: "ethics", label: "Ethics" },
-  { id: "recommendations", label: "Recommendations" },
-  { id: "conclusion", label: "Conclusion" },
+export interface NavLink {
+  slug: string;
+  label: string;
+  href: string;
+}
+
+export const NAV_LINKS: NavLink[] = [
+  { slug: "intro", label: "Intro", href: "/" },
+  { slug: "ai-solutions", label: "AI Solutions", href: "/ai-solutions" },
+  { slug: "understanding", label: "Understanding", href: "/understanding" },
+  { slug: "causes", label: "Causes", href: "/causes" },
+  { slug: "impacts", label: "Impacts", href: "/impacts" },
+  { slug: "tech-framework", label: "Tech & Synergy", href: "/tech-framework" },
+  { slug: "ethics", label: "Ethics", href: "/ethics" },
+  { slug: "recommendations", label: "Recommendations", href: "/recommendations" },
+  { slug: "conclusion", label: "Conclusion", href: "/conclusion" },
 ];
 
 export const ROOT_CAUSES_DATA = [

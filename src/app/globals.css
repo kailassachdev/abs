@@ -106,19 +106,25 @@ body {
   }
   body {
     @apply bg-background text-foreground;
-    /* Ensure smooth scrolling for anchor links */
-    scroll-behavior: smooth;
+    /* Ensure smooth scrolling for anchor links - REMOVED FOR MULTI-PAGE */
+    /* scroll-behavior: smooth; */
   }
-  /* Offset for sticky navbar */
-  section[id] {
-    scroll-margin-top: 4rem; /* Adjust based on actual navbar height (h-16 is 4rem) */
-  }
+  /* Offset for sticky navbar - REMOVED FOR MULTI-PAGE */
+  /* section[id] { */
+    /* scroll-margin-top: 4rem; /* Adjust based on actual navbar height (h-16 is 4rem) */
+  /* } */
 }
 
 /* Custom styles from user's HTML if not covered by Tailwind/Shadcn */
 .section-title {
   @apply text-3xl font-semibold text-teal-custom-800 mb-6 text-center;
 }
+
+/* Styling for section containers to add padding */
+section {
+  @apply pt-8 pb-8 md:pt-12 md:pb-12; /* Adjust padding as needed for page content */
+}
+
 
 .card-custom {
    @apply bg-card text-card-foreground rounded-xl shadow-lg p-6 transition-transform duration-300 ease-in-out;
@@ -181,4 +187,3 @@ body {
   background-color: hsla(var(--amber-50-hsl), 0.9);
   backdrop-filter: blur(8px);
 }
-
