@@ -16,14 +16,23 @@ export function AiSolutionsSection() {
       <h2 className="section-title">AI to the Rescue: Strategic Solutions</h2>
       <p className="text-center max-w-3xl mx-auto mb-10 text-lg text-neutral-700">Artificial Intelligence offers transformative opportunities to alleviate core stressors, enhance well-being, and foster a more sustainable IT workforce. Explore various AI applications below.</p>
       <div className="max-w-5xl mx-auto">
-        <Tabs defaultValue="automation" className="w-full">
+        <Tabs defaultValue="burnout-detector" className="w-full">
           <TabsList className="grid w-full grid-cols-2 md:grid-cols-5 mb-0 border-b-0 p-0 bg-transparent rounded-none">
+            <TabsTrigger value="burnout-detector" className={`${tabButtonStyle} data-[state=active]:${activeTabButtonStyle}`}>Burnout Detector</TabsTrigger>
             <TabsTrigger value="automation" className={`${tabButtonStyle} data-[state=active]:${activeTabButtonStyle}`}>Task Automation</TabsTrigger>
             <TabsTrigger value="workload" className={`${tabButtonStyle} data-[state=active]:${activeTabButtonStyle}`}>Workload Management</TabsTrigger>
             <TabsTrigger value="wellbeing" className={`${tabButtonStyle} data-[state=active]:${activeTabButtonStyle}`}>Well-being Support</TabsTrigger>
             <TabsTrigger value="it-ops" className={`${tabButtonStyle} data-[state=active]:${activeTabButtonStyle}`}>Specialized IT Ops</TabsTrigger>
-            <TabsTrigger value="burnout-detector" className={`${tabButtonStyle} data-[state=active]:${activeTabButtonStyle}`}>Burnout Detector</TabsTrigger>
           </TabsList>
+
+          <TabsContent value="burnout-detector" className="tab-content-custom">
+            <h3 className="text-xl font-semibold text-teal-custom-700 mb-3">AI-Powered Burnout Risk Detector</h3>
+            <p className="mb-4 text-neutral-700">Analyze anonymized communication patterns (emails, chats) to assess potential burnout risk within a team or for an individual. This tool helps identify early warning signs based on language cues.</p>
+            <BurnoutRiskDetectorForm />
+            <p className="mt-6 text-md text-neutral-700 bg-amber-100 p-3 rounded-lg">
+              <strong>Benefit:</strong> Proactively identify individuals or teams at risk of burnout, enabling timely interventions and support strategies. Helps in fostering a healthier work environment.
+            </p>
+          </TabsContent>
 
           <TabsContent value="automation" className="tab-content-custom">
             <h3 className="text-xl font-semibold text-teal-custom-700 mb-3">Automating Repetitive and Mundane Tasks</h3>
@@ -80,15 +89,6 @@ export function AiSolutionsSection() {
               <li><strong>Security Operations Centers (SOCs):</strong> AI-powered tools triage alerts, categorize threats, automate responses for false positives.</li>
             </ul>
              <p className="mt-3 text-md text-neutral-700 bg-amber-100 p-3 rounded-lg"><strong>Benefit:</strong> Enhances IT infrastructure resilience and security, reduces operational costs, and allows focus on high-impact threats.</p>
-          </TabsContent>
-          
-          <TabsContent value="burnout-detector" className="tab-content-custom">
-            <h3 className="text-xl font-semibold text-teal-custom-700 mb-3">AI-Powered Burnout Risk Detector</h3>
-            <p className="mb-4 text-neutral-700">Analyze anonymized communication patterns (emails, chats) to assess potential burnout risk within a team or for an individual. This tool helps identify early warning signs based on language cues.</p>
-            <BurnoutRiskDetectorForm />
-            <p className="mt-6 text-md text-neutral-700 bg-amber-100 p-3 rounded-lg">
-              <strong>Benefit:</strong> Proactively identify individuals or teams at risk of burnout, enabling timely interventions and support strategies. Helps in fostering a healthier work environment.
-            </p>
           </TabsContent>
         </Tabs>
       </div>
