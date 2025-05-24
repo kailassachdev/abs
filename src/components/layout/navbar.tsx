@@ -3,14 +3,14 @@
 
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu } from "lucide-react";
 import { NAV_LINKS } from "@/lib/constants";
 import type { NavLink } from "@/lib/constants";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 export function Navbar() {
-  const [activeSection, setActiveSection] = useState<string>("ai-solutions");
+  const [activeSection, setActiveSection] = useState<string>(NAV_LINKS[0]?.slug || "");
   const [navbarHeight, setNavbarHeight] = useState(0);
   const navRef = useRef<HTMLElement | null>(null);
   const [isSheetOpen, setIsSheetOpen] = useState(false);
@@ -21,40 +21,50 @@ export function Navbar() {
     }
 
     const handleScroll = () => {
-      let currentSection = "ai-solutions"; // Default to the first section
-      const scrollPosition = window.scrollY + navbarHeight + 20; // Add some offset
+      const currentNavbarHeight = navRef.current?.offsetHeight || 0;
+      const activationPoint = window.scrollY + currentNavbarHeight + 1; 
+      let newActiveSection = "";
 
-      NAV_LINKS.forEach((link) => {
-        const section = document.getElementById(link.slug);
-        if (section && section.offsetTop <= scrollPosition && section.offsetTop + section.offsetHeight > scrollPosition) {
-          currentSection = link.slug;
+      const isAtBottom = (window.innerHeight + window.scrollY) >= document.body.offsetHeight - 2;
+
+      if (isAtBottom && NAV_LINKS.length > 0) {
+        newActiveSection = NAV_LINKS[NAV_LINKS.length - 1].slug;
+      } else {
+        for (let i = NAV_LINKS.length - 1; i >= 0; i--) {
+          const link = NAV_LINKS[i];
+          const section = document.getElementById(link.slug);
+          if (section && section.offsetTop <= activationPoint) {
+            newActiveSection = link.slug;
+            break; 
+          }
         }
-      });
-       // If scrolled to the very bottom, and the last section isn't filling the view, make sure it's active
-      if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 20) {
-        currentSection = NAV_LINKS[NAV_LINKS.length - 1].slug;
+        if (!newActiveSection && NAV_LINKS.length > 0) {
+          newActiveSection = NAV_LINKS[0].slug;
+        }
       }
-
-      setActiveSection(currentSection);
+      
+      if (newActiveSection && activeSection !== newActiveSection) {
+        setActiveSection(newActiveSection);
+      }
     };
 
-    window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Call on mount to set initial active section
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll(); 
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [navbarHeight]);
+  }, [navbarHeight]); // Dependency only on navbarHeight
 
   const NavLinkItems = ({ isMobile = false, onLinkClick }: { isMobile?: boolean, onLinkClick?: () => void }) => (
     <>
       {NAV_LINKS.map((link: NavLink) => (
         <Link
           key={link.slug}
-          href={link.href} // Use the href which now includes #
+          href={link.href}
           onClick={() => {
             if (onLinkClick) onLinkClick();
-            // setActiveSection(link.slug); // Set active on click for faster feedback
+            // setActiveSection(link.slug); // Optional: for instant feedback, but scroll handler will catch it
           }}
           className={`nav-link-custom ${activeSection === link.slug ? "active" : ""} ${isMobile ? "block text-lg py-3" : "text-sm"}`}
         >
@@ -69,7 +79,7 @@ export function Navbar() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
-            <Link href="/#ai-solutions" className="font-bold text-xl text-teal-custom-700">
+            <Link href={`/#${NAV_LINKS[0]?.slug || ''}`} className="font-bold text-xl text-teal-custom-700">
               Aether Shield
             </Link>
           </div>
