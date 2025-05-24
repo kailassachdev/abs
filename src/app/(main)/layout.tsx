@@ -1,4 +1,10 @@
 
+// This file is no longer used as the application is now a single-page app.
+// The Navbar and Footer are managed within src/app/page.tsx.
+// Keeping the file empty or with a comment to avoid build errors if referenced elsewhere unexpectedly,
+// though it should ideally be deleted if the tooling supported it.
+
+/*
 import type { Metadata } from 'next';
 import { Navbar } from "@/components/layout/navbar";
 // import { Footer } from "@/components/layout/footer"; // Temporarily commented out
@@ -14,12 +20,11 @@ export default function MainLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div style={{ border: '5px solid blue', minHeight: '100vh' }}> {/* Added style for debugging */}
+    <div style={{ border: '5px solid blue', minHeight: '100vh' }}>
       <Navbar />
-      {/* <main className="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8"> */}
-        {children}
-      {/* </main> */}
-      {/* <Footer /> */} {/* Temporarily commented out */}
+      {children}
     </div>
   );
 }
+*/
+export {}; // Add an empty export to ensure it's treated as a module

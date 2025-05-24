@@ -6,15 +6,15 @@ export interface NavLink {
 }
 
 export const NAV_LINKS: NavLink[] = [
-  { slug: "intro", label: "Intro", href: "/" },
-  { slug: "ai-solutions", label: "AI Solutions", href: "/ai-solutions" },
-  { slug: "understanding", label: "Understanding", href: "/understanding" },
-  { slug: "causes", label: "Causes", href: "/causes" },
-  { slug: "impacts", label: "Impacts", href: "/impacts" },
-  { slug: "tech-framework", label: "Tech & Synergy", href: "/tech-framework" },
-  { slug: "ethics", label: "Ethics", href: "/ethics" },
-  { slug: "recommendations", label: "Recommendations", href: "/recommendations" },
-  { slug: "conclusion", label: "Conclusion", href: "/conclusion" },
+  { slug: "intro", label: "Intro", href: "/#intro" },
+  { slug: "ai-solutions", label: "AI Solutions", href: "/#ai-solutions" },
+  { slug: "understanding", label: "Understanding", href: "/#understanding" },
+  { slug: "causes", label: "Causes", href: "/#causes" },
+  { slug: "impacts", label: "Impacts", href: "/#impacts" },
+  { slug: "tech-framework", label: "Tech & Synergy", href: "/#tech-framework" },
+  { slug: "ethics", label: "Ethics", href: "/#ethics" },
+  { slug: "recommendations", label: "Recommendations", href: "/#recommendations" },
+  { slug: "conclusion", label: "Conclusion", href: "/#conclusion" },
 ];
 
 export const ROOT_CAUSES_DATA = [

@@ -114,9 +114,10 @@ body {
   @apply text-3xl font-semibold text-teal-custom-800 mb-6 text-center;
 }
 
-/* Styling for section containers to add padding */
+/* Styling for section containers to add padding and scroll margin for sticky nav */
 section {
-  @apply pt-8 pb-8 md:pt-12 md:pb-12; /* Adjust padding as needed for page content */
+  @apply pt-8 pb-8 md:pt-12 md:pb-12; 
+  scroll-margin-top: 5rem; /* 80px, adjust if navbar height changes */
 }
 
 
@@ -177,11 +178,9 @@ section {
 }
 
 .sticky-nav-custom {
-  /* @apply sticky top-0 z-50 shadow-md; */ /* Temporarily remove sticky, z-index, shadow */
-  background-color: red !important; /* Force a very visible background */
-  /* backdrop-filter: blur(8px); */ /* Temporarily remove backdrop filter */
-  height: 64px; /* Explicit height, h-16 in Tailwind is 4rem or 64px */
+  @apply sticky top-0 z-50 shadow-md;
+  background-color: hsla(var(--amber-50-hsl), 0.9); /* Light amber with transparency */
+  backdrop-filter: blur(8px);
+  height: 64px; /* h-16 */
   width: 100%;
-  /* The following ensure it's part of the normal flow for now */
-  position: static; 
 }
