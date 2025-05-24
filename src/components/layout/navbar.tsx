@@ -54,15 +54,17 @@ export function Navbar() {
               <SheetContent side="right" className="w-[250px] sm:w-[300px] bg-amber-custom-50 p-6">
                 <div className="flex flex-col space-y-2">
                    <NavLinkItems isMobile={true} onLinkClick={() => {
+                     // Attempt to click the default close button provided by SheetContent
                      const closeButton = document.querySelector('button[aria-label="Close"]');
                      if (closeButton instanceof HTMLElement) {
                         closeButton.click();
                      }
                    }} />
                 </div>
-                <SheetClose asChild>
-                  <button aria-label="Close" className="hidden"></button>
-                </SheetClose>
+                {/* Removed custom hidden SheetClose component. 
+                    The SheetContent itself provides a close button (X icon top right).
+                    The onLinkClick handler above attempts to click that.
+                */}
               </SheetContent>
             </Sheet>
           </div>
