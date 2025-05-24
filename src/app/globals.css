@@ -184,6 +184,6 @@ section {
 
 .sticky-nav-custom {
   @apply sticky top-0 z-50 shadow-md;
-  background-color: hsla(var(--amber-50-hsl), 0.9);
+  background-color: hsla(var(--card), 0.9); /* Changed from --amber-50-hsl to --card for better visibility */
   backdrop-filter: blur(8px);
 }
