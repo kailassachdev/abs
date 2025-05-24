@@ -1,10 +1,10 @@
 
 export const NAV_LINKS = [
   { id: "intro", label: "Intro" },
+  { id: "ai-solutions", label: "AI Solutions" },
   { id: "understanding", label: "Understanding" },
   { id: "causes", label: "Causes" },
   { id: "impacts", label: "Impacts" },
-  { id: "ai-solutions", label: "AI Solutions" },
   { id: "tech-framework", label: "Tech & Synergy" },
   { id: "ethics", label: "Ethics" },
   { id: "recommendations", label: "Recommendations" },
