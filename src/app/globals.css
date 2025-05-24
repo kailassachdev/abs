@@ -106,13 +106,7 @@ body {
   }
   body {
     @apply bg-background text-foreground;
-    /* Ensure smooth scrolling for anchor links - REMOVED FOR MULTI-PAGE */
-    /* scroll-behavior: smooth; */
   }
-  /* Offset for sticky navbar - REMOVED FOR MULTI-PAGE */
-  /* section[id] { */
-    /* scroll-margin-top: 4rem; /* Adjust based on actual navbar height (h-16 is 4rem) */
-  /* } */
 }
 
 /* Custom styles from user's HTML if not covered by Tailwind/Shadcn */
@@ -183,7 +177,11 @@ section {
 }
 
 .sticky-nav-custom {
-  @apply sticky top-0 z-50 shadow-md;
-  background-color: hsla(var(--card), 0.9); /* Changed from --amber-50-hsl to --card for better visibility */
-  backdrop-filter: blur(8px);
+  /* @apply sticky top-0 z-50 shadow-md; */ /* Temporarily remove sticky, z-index, shadow */
+  background-color: red !important; /* Force a very visible background */
+  /* backdrop-filter: blur(8px); */ /* Temporarily remove backdrop filter */
+  height: 64px; /* Explicit height, h-16 in Tailwind is 4rem or 64px */
+  width: 100%;
+  /* The following ensure it's part of the normal flow for now */
+  position: static; 
 }
