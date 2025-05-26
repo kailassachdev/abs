@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: 'Aether Shield: IT Burnout & AI Solutions Explorer',
   description: 'Exploring IT burnout and AI-driven solutions to foster well-being and productivity.',
   icons: {
-    icon: '/senk.png', // This tells Next.js to look for senk.png in the public directory
+    icon: '/src/app/senk.png', // This tells Next.js to look for senk.png in the public directory
   },
 };
 
