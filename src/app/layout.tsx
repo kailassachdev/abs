@@ -12,6 +12,9 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: 'Aether Shield: IT Burnout & AI Solutions Explorer',
   description: 'Exploring IT burnout and AI-driven solutions to foster well-being and productivity.',
+  icons: {
+    icon: '/favicon.ico', // This tells Next.js to look for favicon.ico in the public directory
+  },
 };
 
 export default function RootLayout({
