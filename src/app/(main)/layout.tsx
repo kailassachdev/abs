@@ -1,30 +1,20 @@
 
-// This file is no longer used as the application is now a single-page app.
-// The Navbar and Footer are managed within src/app/page.tsx.
-// Keeping the file empty or with a comment to avoid build errors if referenced elsewhere unexpectedly,
-// though it should ideally be deleted if the tooling supported it.
+import type { ReactNode } from 'react';
 
-/*
-import type { Metadata } from 'next';
-import { Navbar } from "@/components/layout/navbar";
-// import { Footer } from "@/components/layout/footer"; // Temporarily commented out
+// This layout is for the (main) route group.
+// Since the app is currently structured as a single-page application
+// where src/app/page.tsx manages its own Navbar and Footer,
+// this layout might not be directly wrapping the primary content of the homepage.
+// However, to ensure Next.js build processes it correctly as a layout file
+// if it encounters this route group, it needs to export a valid default layout component.
 
-export const metadata: Metadata = {
-  title: 'Aether Shield: IT Burnout & AI Solutions Explorer',
-  description: 'Exploring IT burnout and AI-driven solutions to foster well-being and productivity.',
-};
-
-export default function MainLayout({
+export default function MainGroupLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: ReactNode;
 }>) {
-  return (
-    <div style={{ border: '5px solid blue', minHeight: '100vh' }}>
-      <Navbar />
-      {children}
-    </div>
-  );
+  // This layout simply passes its children through.
+  // The actual page structure with Navbar and Footer for the single-page app
+  // is defined in src/app/page.tsx.
+  return <>{children}</>;
 }
-*/
-export {}; // Add an empty export to ensure it's treated as a module
